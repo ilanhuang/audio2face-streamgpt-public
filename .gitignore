@@ -1,0 +1,15 @@
+# all folders starting with _ are local
+_*/
+
+.DS_Store
+**/.vscode/ipch
+
+# byte-compiled python files
+*.py[cod]
+
+/.vs
+
+/app
+
+# Ignore OpenAI key
+\Usuario\Desktop\ERKS\Omniverse\streamgpt\exts\stream.gptchat\stream\gptchat\key_openai.txt

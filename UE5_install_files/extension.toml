@@ -1,0 +1,55 @@
+[package]
+version = "104.10.8"
+title = "Audio2Face Exporter"
+authors = ["NVIDIA"]
+description="Custom Kit exporter for audio2face"
+repository = ""
+keywords = ["audio2face"]
+category = "Animation"
+readme = "docs/README.md"
+changelog = "docs/CHANGELOG.md"
+preview_image = "data/preview.png"
+icon = "data/icon.png"
+
+
+[dependencies]
+"omni.ui" = {optional = true}
+"omni.kit.window.filepicker" = {optional = true}
+"omni.graph" = {}
+"omni.graph.tools" = {}
+"omni.kit.menu.utils" = {optional = true}
+"omni.kit.window.viewport" = {optional = true}
+"omni.kit.viewport.utility" = {optional = true}
+"omni.client" = {}
+"omni.anim.shared" = {}
+"omni.deform.shared" = {}
+"omni.audio2face.common" = {}
+"omni.audio2face.ui.common" = {optional = true}
+"omni.audio2face.tool" = {}
+"omni.services.core"={}
+
+[[python.module]]
+name = "omni.audio2face.exporter"
+
+[[test]]
+dependencies = [
+    "omni.kit.renderer.core",
+    "omni.ui",
+    "omni.kit.window.filepicker",
+    "omni.kit.menu.utils",
+    "omni.kit.window.viewport",
+    "omni.kit.viewport.utility",
+    "omni.audio2face.ui.common"
+]
+timeout = 900
+stdoutFailPatterns.exclude = [
+    "*failed to upload minidump*",  # Exclude grahics leaks until fixed
+]
+
+[package.writeTarget]
+kit = true
+platform = true
+
+[python.pipapi]
+requirements = ['python-osc']
+use_online_index = true
